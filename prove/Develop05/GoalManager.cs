@@ -69,7 +69,7 @@ public class GoalManager
             return;
         }
 
-        for (int i = 0; i< _goals.Count; i++)
+        for (int i = 0; i < _goals.Count; i++)
         {
             Console.WriteLine($"{i + 1}. {_goals[i].GetDetailsString()}");
         }
@@ -89,6 +89,13 @@ public class GoalManager
             int points = _goals[choice].RecordEvent();
             _score += points;
             Console.WriteLine($"Congratulations! You have earned {points} points!");
+
+            // Check if the completed goal is a checklist goal
+            if (_goals[choice] is ChecklistGoal && _goals[choice].IsComplete())
+            {
+                // Cast the goal to ChecklistGoal and then call the Complete method
+                ((ChecklistGoal)_goals[choice]).Complete();
+            }
         }
         else
         {
