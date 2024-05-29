@@ -56,6 +56,7 @@ public class ChecklistGoal : Goal
         Console.WriteLine("Congratulations! You just completed a checklist goal and have been awarded with bonus points!!!");
     }
 
+// Code to exceed requirements - Fireworks animation added to when a checklist goal is completed.
     private void DisplayFireworks()
     {
         Console.CursorVisible = false; // Hide the cursor
@@ -88,12 +89,13 @@ public class ChecklistGoal : Goal
                     break;
             }
 
-            Thread.Sleep(1000); // Adjust the sleep duration to control the speed of the animation
+            Thread.Sleep(1000); // Adjust the sleep duration speed of the animation
             Console.Clear();
             Thread.Sleep(100); // Add a pause between each iteration of the animation
         }
     }
 
+// Different patterns to alternate colors and symbols position
     private void DisplayFireworkPattern1()
     {
         Console.ForegroundColor = GetRandomConsoleColor();
